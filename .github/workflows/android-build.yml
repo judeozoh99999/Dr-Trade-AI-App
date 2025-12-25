@@ -31,6 +31,7 @@ jobs:
         run: |
           cd android
           chmod +x gradlew
+          sed -i 's/\r$//' gradlew
           ./gradlew assembleRelease --no-daemon
 
       - name: Upload APK
