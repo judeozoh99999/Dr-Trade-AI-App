@@ -27,9 +27,6 @@ jobs:
       - name: Install Dependencies
         run: npm ci
 
-      - name: Prebuild (Generate Android Project)
-        run: npx expo prebuild --platform android
-
       - name: Build APK with Gradle
         run: |
           cd android
