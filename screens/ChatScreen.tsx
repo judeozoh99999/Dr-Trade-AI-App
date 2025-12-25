@@ -68,8 +68,20 @@ export default function ChatScreen() {
     };
 
     const generateMockResponse = (text: string) => {
-        // Simple mock logic
-        return "That's an interesting market question. Looking at the current charts (Mock Data), the trend appears bullish with RSI indicating overbought conditions. Consider a cautious entry.";
+        const lowerText = text.toLowerCase();
+
+        if (lowerText.includes('bitcoin') || lowerText.includes('btc')) {
+            return "Bitcoin is currently testing key resistance levels. Order flow suggests some selling pressure, but the long-term trend remains Bullish. Watch for a breakout above $68k.";
+        }
+        if (lowerText.includes('bearish') || lowerText.includes('sell')) {
+            return "Market sentiment is leaning Bearish on shorter timeframes due to recent macroeconomic data. A short setup might be valid if price breaks below support.";
+        }
+        if (lowerText.includes('strategy') || lowerText.includes('scalp')) {
+            return "For scalping today, consider using the 5-minute timeframe with the 200 EMA to determine trend direction. Look for pullbacks to the VWAP for low-risk entries.";
+        }
+
+        // Default response
+        return "That's an interesting market question. Looking at the current charts (Mock Data), volatility is increasing. Please ensure you manage your risk carefully.";
     };
 
     const renderItem = ({ item }: { item: Message }) => {
